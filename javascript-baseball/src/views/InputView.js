@@ -1,9 +1,13 @@
 import { Console } from '@woowacourse/mission-utils';
-import INPUT_MESSAGE from '../constants/InputMessage.js';
+import INPUT_MESSAGE from '../constants/inputMessage.js';
 
 const InputView = {
   number() {
     return Console.readLineAsync(INPUT_MESSAGE.number);
+  },
+
+  retry() {
+    return Console.readLineAsync(INPUT_MESSAGE.retry);
   },
 };
 
