@@ -1,10 +1,10 @@
-import { NUMBER } from '../../src/constants/options.js';
+import { BALL_COUNT } from '../../src/constants/options.js';
 import Opponent from '../../src/domain/Opponent.js';
 
 describe('Opponent 도메인 테스트', () => {
   test('getRandomNumberSet() 메소드를 호출하면, 길이가 3인 배열을 반환한다', () => {
     // given
-    const answer = NUMBER.length;
+    const answer = BALL_COUNT.length;
 
     // when
     const randomNumberSet = new Opponent().getRandomNumberSet();

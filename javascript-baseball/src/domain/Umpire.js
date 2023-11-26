@@ -1,5 +1,5 @@
 import ERROR_MESSAGES from '../constants/errorMessages.js';
-import { BALL_COUNT, NUMBER } from '../constants/options.js';
+import { BALL_COUNT } from '../constants/options.js';
 import errorHandler from '../error/handler.js';
 import { isValidNumber, isValidLength } from '../validators/index.js';
 
@@ -20,7 +20,7 @@ class Umpire {
   }
 
   isPlayerWin(ballcount) {
-    return ballcount === `${NUMBER.length}${BALL_COUNT.strike}`;
+    return ballcount === `${BALL_COUNT.length}${BALL_COUNT.strike}`;
   }
 
   #calculateBallcount(opponentNumberSet) {

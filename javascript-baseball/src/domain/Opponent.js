@@ -1,5 +1,5 @@
 import { Random } from '@woowacourse/mission-utils';
-import RANDOM_NUMBER from '../constants/option.js';
+import { BALL_COUNT } from '../constants/options.js';
 
 class Opponent {
   getRandomNumberSet() {
@@ -9,7 +9,7 @@ class Opponent {
   #createRandomNumberSet() {
     const randomNumberSet = [];
 
-    while (randomNumberSet.length < RANDOM_NUMBER.length) {
+    while (randomNumberSet.length < BALL_COUNT.length) {
       const number = this.#generateRandomNumber();
 
       if (!randomNumberSet.includes(number)) randomNumberSet.push(number);
@@ -19,7 +19,7 @@ class Opponent {
   }
 
   #generateRandomNumber() {
-    return Random.pickNumberInRange(RANDOM_NUMBER.min, RANDOM_NUMBER.max);
+    return Random.pickNumberInRange(BALL_COUNT.minNumber, BALL_COUNT.maxNumber);
   }
 }
 
