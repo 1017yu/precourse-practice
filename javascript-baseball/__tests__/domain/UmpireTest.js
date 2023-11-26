@@ -8,17 +8,17 @@ describe('Umpire 도메인 테스트', () => {
 
     // when && then
     playerInput.forEach((input) => {
-      expect(new Umpire(input)).rejects.toThrow(ERROR_MESSAGES.length);
+      expect(() => new Umpire(input)).toThrow(ERROR_MESSAGES.length);
     });
   });
 
-  test('숫자 형식이 아닌 입력이라면, 정해진 에러 메시지를 발생시킨다.', () => {
+  test('숫자 형식이 아닌 입력이라면, 정해진 에러 메시지를 발생시킨다.', async () => {
     // given
     const playerInput = ['12a', '123.4'];
 
     // when && then
-    playerInput.forEach((input) => {
-      expect(new Umpire(input)).rejects.toThrow(ERROR_MESSAGES.number);
+    playerInput.forEach(async (input) => {
+      expect(() => new Umpire(input)).toThrow(ERROR_MESSAGES.number);
     });
   });
 
