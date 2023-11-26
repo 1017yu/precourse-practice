@@ -1,5 +1,5 @@
 import { Console } from '@woowacourse/mission-utils';
-import INPUT_MESSAGE from '../constants/inputMessage.js';
+import INPUT_MESSAGE from '../constants/inputMessages.js';
 
 const InputView = {
   number() {
