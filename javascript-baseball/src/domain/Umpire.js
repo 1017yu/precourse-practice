@@ -9,6 +9,11 @@ class Umpire {
     this.#validate(this.playerNumberSet);
   }
 
+  /**
+   * 유저의 입력과 정답을 비교하여 볼카운트를 출력한다.
+   * @param {number[]} opponentNumberSet 상대방(컴퓨터)의 정답 번호 배열
+   * @returns {string} 유저의 입력과 정답을 비교하여 생성한 문자열 (ex. '1볼 1스트라이크')
+   */
   ballcount(opponentNumberSet) {
     const [balls, strikes] = this.#calculateBallcount(opponentNumberSet);
     if (!balls && !strikes) return `${BALL_COUNT.nothing}`;
@@ -19,6 +24,11 @@ class Umpire {
     );
   }
 
+  /**
+   * 유저가 승리 조건을 충족했는지 판별한다.
+   * @param {string} ballcount 유저의 입력과 정답을 비교하여 생성된 문자열 (ex. '1볼 1스트라이크')
+   * @returns {boolean} 유저가 승리조건(3 스트라이크)를 충족했다면 true, 그렇지 않다면 false
+   */
   isPlayerWin(ballcount) {
     return ballcount === `${BALL_COUNT.length}${BALL_COUNT.strike}`;
   }
