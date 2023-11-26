@@ -6,6 +6,10 @@ const OutputView = {
     Console.print(OUTPUT_MESSAGE.intro);
   },
 
+  printOutro() {
+    Console.print(OUTPUT_MESSAGE.outro);
+  },
+
   printBallCount(ballCount) {
     Console.print(ballCount);
   },
