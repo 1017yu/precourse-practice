@@ -19,6 +19,10 @@ class Racing {
     return this.#scoreBoard;
   }
 
+  getScoreBoard() {
+    return this.#scoreBoard;
+  }
+
   #validate(attempts) {
     if (!isValidAttempts(attempts)) ErrorHandler(ERROR.attempts);
   }
