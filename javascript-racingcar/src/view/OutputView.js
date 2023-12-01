@@ -13,9 +13,13 @@ const OutputView = {
 
   printScoreBoard(scoreBoard) {
     scoreBoard.forEach((score, carName) => {
-      Console.print(`${carName} : ${score}`);
+      Console.print(`${carName} : ${SYMBOLS.dash.repeat(score)}`);
     });
     Console.print(SYMBOLS.blank);
+  },
+
+  printWinners(winners) {
+    Console.print(`${OUTPUT.winners}${winners}`);
   },
 };
 
