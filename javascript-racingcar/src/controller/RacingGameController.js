@@ -6,11 +6,14 @@ import OutputView from '../view/OutputView.js';
 class RacingGameController {
   #attempts;
 
+  #racing;
+
   constructor() {}
 
   async controll() {
     this.carNames = await this.#readCarNames();
-    this.racing = await this.#readAttempts();
+    this.#racing = await this.#readAttempts();
+    this.#race(this.carNames);
   }
 
   async #readCarNames() {
@@ -29,6 +32,14 @@ class RacingGameController {
     } catch ({ message }) {
       OutputView.print(message);
       return this.#readAttempts();
+    }
+  }
+
+  #race(carNames) {
+    OutputView.printResult();
+    while (this.#attempts) {
+      OutputView.printScoreBoard(this.#racing.move(carNames));
+      this.#attempts -= 1;
     }
   }
 }
