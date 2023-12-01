@@ -1,14 +1,16 @@
 import Car from '../domain/Car.js';
+import Racing from '../domain/Racing.js';
 import InputView from '../view/InputView.js';
 import OutputView from '../view/OutputView.js';
 
 class RacingGameController {
-  #carNames;
+  #attempts;
 
   constructor() {}
 
   async controll() {
-    this.#carNames = await this.#readCarNames();
+    this.carNames = await this.#readCarNames();
+    this.racing = await this.#readAttempts();
   }
 
   async #readCarNames() {
@@ -17,6 +19,16 @@ class RacingGameController {
     } catch ({ message }) {
       OutputView.print(message);
       return this.#readCarNames();
+    }
+  }
+
+  async #readAttempts() {
+    try {
+      this.#attempts = await InputView.attempts();
+      return new Racing(this.#attempts);
+    } catch ({ message }) {
+      OutputView.print(message);
+      return this.#readAttempts();
     }
   }
 }
