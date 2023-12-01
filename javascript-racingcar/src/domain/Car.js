@@ -1,7 +1,7 @@
 import { ERROR } from '../constants/messages.js';
 import SYMBOLS from '../constants/symbols.js';
 import ErrorHandler from '../errors/handler.js';
-import { isValidCarName } from '../validators/index.js';
+import { isUniqueName, isValidNameLength } from '../validators/index.js';
 
 class Car {
   constructor(carNames) {
@@ -14,7 +14,8 @@ class Car {
   }
 
   #validate(carNames) {
-    if (!isValidCarName(carNames)) ErrorHandler(ERROR.nameLength);
+    if (!isValidNameLength(carNames)) ErrorHandler(ERROR.nameLength);
+    if (!isUniqueName(carNames)) ErrorHandler(ERROR.uniqueName);
   }
 
   #splitCarNames(carNames) {
