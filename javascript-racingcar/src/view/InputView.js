@@ -5,6 +5,10 @@ const InputView = {
   async carName() {
     return Console.readLineAsync(INPUT.carName);
   },
+
+  async attempts() {
+    return Console.readLineAsync(INPUT.attempts);
+  },
 };
 
 export default InputView;
