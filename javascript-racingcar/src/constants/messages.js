@@ -2,6 +2,7 @@ import SYMBOLS from './symbols.js';
 
 export const OUTPUT = Object.freeze({
   result: '실행 결과',
+  winners: '최종 우승자 : ',
 });
 
 export const INPUT = Object.freeze({
