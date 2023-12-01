@@ -1,7 +1,7 @@
 import { NAME_OPTIONS } from '../../constants/options.js';
 import SYMBOLS from '../../constants/symbols.js';
 
-const isValidCarName = (input) => {
+const isValidNameLength = (input) => {
   const carNames = input.split(SYMBOLS.comma);
 
   return carNames.every(
@@ -10,4 +10,4 @@ const isValidCarName = (input) => {
   );
 };
 
-export default isValidCarName;
+export default isValidNameLength;
