@@ -12,5 +12,6 @@ export const INPUT = Object.freeze({
 export const ERROR = Object.freeze({
   prefix: '[ERROR]',
   nameLength: '자동차 이름은 5자 이하만 가능합니다.',
+  uniqueName: '자동차 이름은 중복되지 않아야 합니다.',
   attempts: '시도할 횟수는 1 이상 숫자 형식만 가능합니다.',
 });
