@@ -1,6 +1,7 @@
 import { Console } from '@woowacourse/mission-utils';
 import { EOL as LINE_SEPERATOR } from 'os';
 import { OUTPUT, STATS } from '../constants/messages.js';
+import SYMBOLS from '../constants/symbols.js';
 
 const OutputView = {
   print(message) {
@@ -12,7 +13,9 @@ const OutputView = {
   },
 
   printLotto(lottos) {
-    lottos.forEach((lotto) => Console.print(lotto));
+    lottos.forEach((lotto) =>
+      Console.print(`[${lotto.join(SYMBOLS.commaWithSpace)}]`)
+    );
   },
 
   printResult() {
