@@ -3,18 +3,24 @@ import AppError from '../errors/AppError.js';
 import { isValidNumber, isValidPurchaseUnit } from '../validators/index.js';
 
 class Purchase {
+  #purchaseAmount;
+
   constructor(purchaseAmount) {
     this.#validate(purchaseAmount);
-    this.purchaseAmount = purchaseAmount;
+    this.#purchaseAmount = purchaseAmount;
   }
 
-  getPurchaseAmount() {
-    return Number(this.purchaseAmount) / OPTION.purchaseUnit;
+  getPurchaseQuantity() {
+    return this.#calculatePurchaseAmount();
+  }
+
+  #calculatePurchaseAmount() {
+    return Number(this.#purchaseAmount) / OPTION.purchaseUnit;
   }
 
   #validate(amount) {
     if (!isValidNumber(amount) || !isValidPurchaseUnit(amount)) {
-      throw AppError.invalidNumber();
+      throw AppError.invalidPurchaseAmount();
     }
   }
 }
