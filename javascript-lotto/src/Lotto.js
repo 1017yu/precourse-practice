@@ -31,10 +31,15 @@ class Lotto {
   #calculateStats(bonusNumber, stats) {
     this.userLottos.forEach((userLotto) => {
       const matches = this.#countMatches(userLotto, this.#numbers);
+      const isSecond = this.#checkSecond(userLotto, bonusNumber);
+
       if (matches === MATCHES.fifth) return (stats[INDEX_TABLE.fifth] += 1);
       if (matches === MATCHES.fourth) return (stats[INDEX_TABLE.fourth] += 1);
-      if (matches === MATCHES.fifth) {
-        return this.#checkSecond(userLotto, bonusNumber, stats);
+      if (matches === MATCHES.third && !isSecond) {
+        return (stats[INDEX_TABLE.third] += 1);
+      }
+      if (matches === MATCHES.third && isSecond) {
+        return (stats[INDEX_TABLE.second] += 1);
       }
       if (matches === MATCHES.first) return (stats[INDEX_TABLE.first] += 1);
     });
@@ -52,20 +57,14 @@ class Lotto {
     return matches;
   }
 
-  #checkSecond(userLotto, bonusNumber, stats) {
-    const hasBonusNumber = userLotto.includes(bonusNumber);
-
-    return hasBonusNumber
-      ? (stats[INDEX_TABLE.second] += 1)
-      : (stats[INDEX_TABLE.third] += 1);
+  #checkSecond(userLotto, bonusNumber) {
+    return userLotto.includes(Number(bonusNumber));
   }
 
-  //
   #calculateProfitRatio(stats) {
     const totalWinnings = Object.values(WINNINGS).reduce(
-      (acc, winning, index) => {
-        acc + stats[index] * winning, 0;
-      }
+      (acc, winning, index) => acc + stats[index] * winning,
+      0
     );
 
     return (
