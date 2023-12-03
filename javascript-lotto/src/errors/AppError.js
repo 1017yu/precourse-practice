@@ -5,8 +5,20 @@ class AppError extends Error {
     super(`${ERROR.prefix} ${message}`);
   }
 
+  static invalidPurchaseAmount() {
+    return new AppError(ERROR.amount);
+  }
+
   static invalidNumber() {
     return new AppError(ERROR.number);
+  }
+
+  static invalidLength() {
+    return new AppError(ERROR.length);
+  }
+
+  static invalidBonusNumber() {
+    return new AppError(ERROR.bonusNumber);
   }
 }
 
