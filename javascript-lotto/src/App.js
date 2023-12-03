@@ -1,14 +1,12 @@
+import Lotto from './Lotto.js';
 import LottoController from './controller/LottoController.js';
 import Purchase from './models/Purchase.js';
 
 class App {
   #controller;
 
-  #puchase;
-
   constructor() {
-    this.#puchase = Purchase;
-    this.#controller = new LottoController(this.#puchase);
+    this.#controller = new LottoController(Purchase, Lotto);
   }
 
   async play() {
