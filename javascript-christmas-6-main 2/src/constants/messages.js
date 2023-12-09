@@ -24,3 +24,11 @@ export const ERROR_MESSAGES = Object.freeze({
   date: '유효하지 않은 날짜입니다. 다시 입력해 주세요.',
   order: '유효하지 않은 주문입니다. 다시 입력해 주세요.',
 });
+
+export const EVENT_MESSAGES = Object.freeze({
+  dDay: '크리스마스 디데이 할인: ',
+  weekday: '평일 할인: ',
+  weekend: '주말 할인: ',
+  special: '특별 할인: ',
+  giveaway: '증정 이벤트: ',
+});
