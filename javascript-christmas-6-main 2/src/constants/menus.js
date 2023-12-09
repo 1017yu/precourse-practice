@@ -8,7 +8,7 @@ export const MENU = Object.freeze({
   크리스마스파스타: 25_000,
   초코케이크: 15_000,
   아이스크림: 5_000,
-  제로콜라: 5_000,
+  제로콜라: 3_000,
   레드와인: 60_000,
   샴페인: 25_000,
 });
@@ -16,3 +16,5 @@ export const MENU = Object.freeze({
 export const DRINKS = Object.freeze({
   drink: ['제로콜라', '레드와인', '샴페인'],
 });
+
+export const GIVEAWAY = '샴페인';
