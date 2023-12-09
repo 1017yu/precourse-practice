@@ -13,7 +13,7 @@ class VisitDate {
     }
   }
 
-  getVisitDate() {
+  get() {
     return this.visitDate;
   }
 }
