@@ -1,5 +1,6 @@
 import InputView from '../views/InputView.js';
 import OutputView from '../views/OutputView.js';
+import currencyFormatter from '../utils/currencyFormatter.js';
 
 class Promotion {
   #domain;
@@ -43,6 +44,10 @@ class Promotion {
     this.#domain = new this.#domain(this.#visitDate, this.#order);
     OutputView.printOutro(this.#visitDate.getVisitDate());
     OutputView.printMenu(this.#order.getOrders());
+    OutputView.printPreDiscount(
+      currencyFormatter(this.#domain.getPreDiscount()),
+    );
+    OutputView.printGiveaway(this.#domain.getGiveaway());
   }
 }
 
