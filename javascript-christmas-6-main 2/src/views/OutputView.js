@@ -22,6 +22,16 @@ const OutputView = {
       Console.print(`${menu} ${quantity}${SYMBOLS.unit}`);
     });
   },
+
+  printPreDiscount(preDiscount) {
+    Console.print(OUTPUT_MESSAGES.preDiscount);
+    Console.print(preDiscount);
+  },
+
+  printGiveaway(giveaway) {
+    Console.print(OUTPUT_MESSAGES.giveaway);
+    Console.print(giveaway);
+  },
 };
 
 export default OutputView;

@@ -1,4 +1,5 @@
-import { MENU } from '../constants/menus.js';
+import { GIVEAWAY, MENU } from '../constants/menus.js';
+import { OPTIONS, THRESHOLDS } from '../constants/options.js';
 
 class EventPlanner {
   #visitDate;
@@ -12,10 +13,19 @@ class EventPlanner {
 
   getPreDiscount() {
     const orders = this.#order.getOrders();
-    return orders.reduce(
-      (acc, { menu, quantity }) => acc + MENU[menu] * quantity,
+    const preDiscount = Array.from(orders).reduce(
+      (acc, [menu, quantity]) => acc + MENU[menu] * quantity,
       0,
     );
+
+    return preDiscount;
+  }
+
+  getGiveaway() {
+    const preDiscount = this.getPreDiscount();
+
+    if (preDiscount >= THRESHOLDS.giveaway) return GIVEAWAY;
+    return OPTIONS.none;
   }
 }
 
