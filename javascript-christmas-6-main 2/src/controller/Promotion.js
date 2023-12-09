@@ -42,12 +42,14 @@ class Promotion {
 
   #printPlanner() {
     this.#domain = new this.#domain(this.#visitDate, this.#order);
-    OutputView.printOutro(this.#visitDate.getVisitDate());
+    OutputView.printOutro(this.#visitDate.get());
     OutputView.printMenu(this.#order.getOrders());
     OutputView.printPreDiscount(
       currencyFormatter(this.#domain.getPreDiscount()),
     );
     OutputView.printGiveaway(this.#domain.getGiveaway());
+    OutputView.printBenefits(this.#domain.getBenefitList());
+    OutputView.printTotalBenefit(this.#domain.getBenefitList());
   }
 }
 
